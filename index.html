@@ -1,0 +1,156 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      height: 100vh;
+      background-color:rgb(237, 207, 207);
+    }
+
+    .image-container {
+      position: relative;
+      width: 25%;
+      margin: 10px;
+      /* overflow: hidden; */
+      cursor: pointer;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+  
+      box-shadow: 5px 10px #888888;
+      border: 5px solid white;
+      border-radius: 4px; 
+    }
+
+    .split-text {
+      position: fixed;
+     
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #000;
+      font-size: 100px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none; /* Prevents the split text from blocking interactions */
+    }
+
+    .image-container:hover img {
+      transform: scale(1.1);
+    }
+
+    .image-container:hover .split-text {
+      opacity: 1;
+    }
+
+    .zoom-in {
+      transform: scale(1.1);
+    }
+
+    header  {
+        background-color:rgb(237, 207, 207);
+     
+
+      text-align: center;
+      
+      position: fixed;
+      top: 0;
+    }
+
+
+    
+  </style>
+</head>
+<body>
+   
+    <header>
+        <h1 >🌑Sunglasses Hut</h1>
+      </header>
+      
+  <!-- <div class="image-container" onmouseover="hoverEffect('Beach')" onmouseout="resetEffect()">
+    <img src="https://summer.sunglasshut.com/static/postcard-beach-b2bc8c38.webp" alt="Image 1">
+  </div> -->
+  <div class="image-container" onmouseover="hoverEffect('Beach')" onmouseout="resetEffect()">
+    <a href="beach.html">
+      <img src="https://summer.sunglasshut.com/static/postcard-beach-b2bc8c38.webp" alt="Image 1">
+    </a>
+  </div>
+  
+
+  <div class="image-container" onmouseover="hoverEffect('City')" onmouseout="resetEffect()">
+    <img src="https://summer.sunglasshut.com/static/postcard-city-ab82cfa3.webp" alt="Image 2">
+  </div>
+  <div class="image-container" onmouseover="hoverEffect('Court')" onmouseout="resetEffect()">
+    <img src="https://summer.sunglasshut.com/static/postcard-court-85c8a0b6.webp" alt="Image 2">
+  </div>
+  <div class="image-container" onmouseover="hoverEffect('pool')" onmouseout="resetEffect()">
+    <img src="https://summer.sunglasshut.com/static/postcard-pool-81ace735.webp" alt="Image 2">
+  </div>
+  <div class="image-container" onmouseover="hoverEffect('Terrace')" onmouseout="resetEffect()">
+    <img src="https://summer.sunglasshut.com/static/postcard-terrace-896e341e.webp" alt="Image 2">
+  </div>
+
+
+
+  <!-- Add more image containers as needed -->
+
+  <div class="split-text" id="splitText"> </div>
+
+  
+
+  
+  <script>
+    const splitTextElement = document.getElementById('splitText');
+    const allContainers = document.querySelectorAll('.image-container');
+
+    function hoverEffect(text) {
+      allContainers.forEach(container => {
+        if (container !== event.currentTarget) {
+          gsap.to(container, { opacity: 0.5, duration: 0.5 });
+        }
+      });
+      gsap.to(splitTextElement, { opacity: 1, duration: 0.5 });
+      splitTextElement.innerText = text;
+    }
+
+    function resetEffect() {
+      allContainers.forEach(container => {
+        gsap.to(container, { opacity: 1, duration: 0.5 });
+      });
+      gsap.to(splitTextElement, { opacity: 0, duration: 0.5 });
+    }
+    gsap.set(".image-container", {
+      y: 100,
+      opacity: 0,
+    });
+
+    gsap.to(".image-container", {
+      duration: 1.5,
+      y: 0,
+      opacity: 1,
+      ease: "bounce.out",
+      stagger: {
+        grid: "auto",
+        from: "random",
+        each: 0.2,
+      },
+    });
+  </script>
+
+</body>
+</html>
+
+ 
