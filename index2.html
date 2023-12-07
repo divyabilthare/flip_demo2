@@ -1,125 +1,17 @@
-<!-- 
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: center;
-      height: 100vh;
-      background-color: pink;
-    }
-
-    .image-container {
-      position: relative;
-      width: 30%;
-      margin: 10px;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .image-container img {
-      width: 100%;
-      height: auto;
-      transition: transform 0.5s;
-
-      box-shadow: 5px 10px #888888;
-      border: 5px solid white;
-      border-radius: 4px;
-    }
-
-    .text-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #000;
-      font-size: 20px;
-      text-align: center;
-      opacity: 0;
-    }
-
-    .image-container:hover img {
-      transform: scale(1.1);
-    }
-
-    .image-container:hover .text-overlay {
-      opacity: 1;
-    }
-
-    .zoom-in {
-      transform: scale(1.1);
-    }
-  </style>
-</head>
-<body>
-
-  <div class="image-container" onmouseover="hoverEffect(this)" onmouseout="resetEffect(this)">
-    <img src="https://summer.sunglasshut.com/static/postcard-beach-b2bc8c38.webp" alt="Beach">
-    <div class="text-overlay">Beach</div>
-  </div>
-
-  <div class="image-container" onmouseover="hoverEffect(this)" onmouseout="resetEffect(this)">
-    <img src="https://summer.sunglasshut.com/static/postcard-city-ab82cfa3.webp" alt="City">
-    <div class="text-overlay">City</div>
-  </div>
-  
-  <div class="image-container" onmouseover="hoverEffect(this)" onmouseout="resetEffect(this)">
-    <img src="https://summer.sunglasshut.com/static/postcard-court-85c8a0b6.webp" alt="Court">
-    <div class="text-overlay">Court</div>
-  </div>
-  
-  <div class="image-container" onmouseover="hoverEffect(this)" onmouseout="resetEffect(this)">
-    <img src="https://summer.sunglasshut.com/static/postcard-pool-81ace735.webp" alt="Pool">
-    <div class="text-overlay">Pool</div>
-  </div>
-  
-  <div class="image-container" onmouseover="hoverEffect(this)" onmouseout="resetEffect(this)">
-    <img src="https://summer.sunglasshut.com/static/postcard-terrace-896e341e.webp" alt="Terrace">
-    <div class="text-overlay">Terrace</div>
-  </div>
 
 
 
-  <script>
-    const textOverlay = document.querySelectorAll('.text-overlay');
-    const allContainers = document.querySelectorAll('.image-container');
 
-    function hoverEffect(element) {
-      allContainers.forEach(container => {
-        if (container !== element) {
-          gsap.to(container, { opacity: 0.5, duration: 0.5 });
-        }
-      });
-      gsap.to(textOverlay, { opacity: 0, duration: 0.5 });
-      gsap.to(element.querySelector('.text-overlay'), { opacity: 1, duration: 0.5 });
-    }
 
-    function resetEffect(element) {
-      allContainers.forEach(container => {
-        gsap.to(container, { opacity: 1, duration: 0.5 });
-      });
-      gsap.to(textOverlay, { opacity: 1, duration: 0.5 });
-    }
-  </script>
 
-</body>
-</html> 
- 
 
- -->
 
- 
-       
-        
- 
- 
+
+
+
+
+
+
+
+
+
