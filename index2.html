@@ -75,9 +75,12 @@
     .image-container:hover .split-text {
       opacity: 1;
     }
+
+
   </style>
 </head>
 <body>
+  
 
   <header>
     <h1>🌑Sunglasses Hut</h1>
@@ -119,11 +122,15 @@
         <img src="https://summer.sunglasshut.com/static/postcard-terrace-896e341e.webp" alt="Image 2">
       </div>
     </a>
+    
   </div>
+  
+ 
 
   <div class="split-text" id="splitText"> </div>
 
   <script>
+    
     const splitTextElement = document.getElementById('splitText');
     const allContainers = document.querySelectorAll('.image-container');
 
@@ -143,6 +150,8 @@
       });
       gsap.to(splitTextElement, { opacity: 0, duration: 0.5 });
     }
+
+   
 
     gsap.set(".image-container", {
       y: 100,
@@ -168,6 +177,7 @@
     function showContent() {
       
     }
+   
   </script>
 </body>
 </html>

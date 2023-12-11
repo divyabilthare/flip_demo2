@@ -1,14 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>document</title>
-    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+    <title>Document</title>
+   
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js" integrity="sha512-LQQDtPAueBcmGXKdOBcMkrhrtqM7xR2bVrnMtYZ8ImAZhFlIb5xrMqQ6uZviyeSB+4mYj89ta8niiCIQM1Gj0w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         html, body {
             margin: 0;
+            overflow-x: hidden;
         }
 
         .hero-title {
@@ -23,7 +30,6 @@
             max-width: 98%;
             background: transparent;
             margin: 0 auto;
-            border-bottom: 1px solid #000;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,13 +48,13 @@
         }
 
         .nav__links:hover {
-            color:black;
+            color: rgb(222, 215, 250);
         }
 
         .nav-toggle {
             cursor: pointer;
             font-family: "Monument Extended";
-            color: tomato;
+            color: black;
             font-weight: lighter;
             text-transform: uppercase;
         }
@@ -81,7 +87,6 @@
             text-decoration: none;
             color: #fff;
             text-transform: uppercase;
-            font-family: "Monument Extended";
             font-size: 70px;
             font-weight: lighter;
             letter-spacing: -8px;
@@ -115,23 +120,53 @@
             width: 100%;
         }
 
-      
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+        }
+
+        #section1 {
+            background-color: #3498db;
+            color: #000;
+            font-weight: bold;
+        }
+
+        #section2 {
+            background-color: rgba(0, 0, 255, 0.708);
+        }
+        #section4 {
+            background-color: #3498db;
+            color: #000;
+            font-weight: bold;
+        }
+        #zoom-out{
+            background-color: #73b6fe;
+        }
+
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+
     </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="nav-container">
             <ul class="nav__list">
-                <li class="nav__item"><a href="index.html" class="nav__links">🌑Sunglasses Hut</a></li>
+                <li class="nav__item"><a href="index2.html" class="nav__links">🌑Sunglasses Hut</a></li>
             </ul>
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav__links nav-toggle">MENU </i></a>
-                   
+                    <a class="nav__links nav-toggle">MENU </a>
                 </li>
             </ul>
-            
-            
         </div>
     </div>
 
@@ -162,32 +197,111 @@
         </div>
     </div>
 
+    <section id="section1"><h1>Terrace</h1><br/>
+       
+        <img src="https://assets2.oakley.com/cdn-record-files-pi/1f3fa926-0b10-4ca1-940e-af410140acc3/337dea71-7b0e-4eb1-97eb-af410140b044/0OO9250__925007__P21__shad__qt.png?impolicy=OO_ratio&width=200" alt="">
+     </section>
+     <section id="section2">
+         <img id="beachImage" src="https://summer.sunglasshut.com/static/beach-waves-446e0ff3.webp" alt="">
+     </section>
+     <section id="zoom-out">
+         <img id="zoomOutImage" src="https://summer.sunglasshut.com/static/postcard-beach-b2bc8c38.webp" height="100%" width="100%" alt="Image 2">
+     </section>
+     <section id="section4">POOL <br/>
+     </section>
+    
+
+    
+
     <script>
         const t1 = gsap.timeline({ paused: true });
-
+    
         t1.from(".nav", 1.5, {
             height: '0%',
             ease: Expo.easeInOut,
             y: '0%',
         });
-
+    
         t1.staggerTo(".nav-item a", 0.6, {
             top: "0px",
             ease: Expo.easeInOut,
         }, 0.1, "-=0.8");
-
+    
         t1.reverse();
-
+    
         $(document).on("click", ".nav-toggle", function () {
             t1.reversed(!t1.reversed());
         });
-
+    
         $(document).on("click", ".nav-item a", function () {
             t1.reversed(!t1.reversed());
         });
+    
+        gsap.from("#zoom-out img", {
+            scale: 0.5,
+            scrollTrigger: {
+                trigger: "#zoom-out",
+                start: "top center", // Changed trigger to "zoom-out" and start position
+                end: "bottom center",
+                scrub: true,
+            }
+        });
+
+
+            // script.js
+            document.addEventListener("DOMContentLoaded", function () {
+            // Split text for section1
+            const section1Text = new SplitType('#section1', { types: 'words,chars' });
+
+            // Animation for section1 (BEACH)
+            gsap.from(section1Text.chars, { opacity: 0, y: 100, duration: 1, stagger: 0.05 });
+
+            // Animation for section2 (Beach Image)
+            gsap.from('#beachImage', {
+                opacity: 0,
+                scale: 0.5,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: '#section2',
+                    start: 'top center ',
+                    end: 'bottom center',
+                    scrub: 5,
+                }
+            });
+
+            // Animation for zoom-out section (Zoom-out Image)
+            gsap.from('#zoomOutImage', {
+                opacity: 0,
+                scale: 1.5,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: '#zoom-out',
+                    start: 'top center',
+                    end: 'bottom center',
+                    scrub: 5,
+                }
+            });
+
+            // Split text for section4
+            const section4Text = new SplitType('#section4', { types: 'words,chars' });
+
+            // Animation for section4 (POOL)
+            gsap.from(section4Text.chars, {
+                opacity: 0,
+                y: 100,
+                duration: 2,
+                stagger: 0.05,
+                scrollTrigger: {
+                    trigger: '#section4',
+                    start: 'top center',
+                    end: 'bottom center',
+                    scrub: 5,
+                }
+            });
+        });
     </script>
 </body>
-</html> 
+</html>
 
 
 
