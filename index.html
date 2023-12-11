@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
   <style>
-    body {
+     /* body {
       margin: 0;
       padding: 0;
       display: flex;
@@ -23,7 +23,7 @@
       position: relative;
       width: 25%;
       margin: 10px;
-      /* overflow: hidden; */
+      
       cursor: pointer;
      
     }
@@ -66,7 +66,7 @@
     }
 
     header  {
-        /* background-color:rgb(237, 207, 207); */
+       
      
 
       text-align: center;
@@ -79,12 +79,117 @@
     }
 
     .rotated {
-  transform: rotate(-10deg); /* Equal to rotateZ(45deg) */
+  transform: rotate(-10deg); 
   
 }
 .rotated1 {
-  transform: rotate(10deg); /* Equal to rotateZ(45deg) */
+  transform: rotate(10deg);
   
+}  */
+
+
+body {
+  margin: 0;
+  padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      height: 100vh;
+      background-color: #f6f1e5;
+    }
+
+    .image-container {
+      height: 25%;
+      position: relative;
+      width: 25%;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+      
+      box-shadow: 5px 10px #888888;
+      border: 5px solid white;
+      border-radius: 8px;
+    }
+
+    .split-text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #000;
+      font-size: 100px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none; 
+    }
+
+    header  {
+      background-color: #f6f1e5;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    header h1{
+      margin: 0;
+    }
+
+    .rotated {
+      transform: rotate(-10deg);
+    }
+
+    .rotated1 {
+      transform: rotate(10deg);
+    }
+    
+    .image-container:hover img {
+      transform: scale(1.1);
+    }
+
+
+    .image-container:hover .split-text {
+      opacity: 1;
+    }
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.preloader span {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+}
+.preloader h4{
+    color:antiquewhite;
+}
+
+.counter {
+    color: white;
+    font-size: 60px;
+}
+
+.content {
+    display: none;
 }
 
   
@@ -96,55 +201,58 @@
   </style>
 </head>
 <body>
+  <div class="preloader">
+    <h4>Click Anywhere to enable sound</h4>
+    <span>We are loading the experience...</span>
+    <div class="counter">0 %</div>
+</div>
+
+  
+ 
    
-    <header>
-        <h1 >🌑Sunglasses Hut</h1>
-      </header>
-      
-  <!-- <div class="image-container" onmouseover="hoverEffect('Beach')" onmouseout="resetEffect()">
-    <img src="https://summer.sunglasshut.com/static/postcard-beach-b2bc8c38.webp" alt="Image 1">
-  </div> -->
+  
+
+   <header>
+    <h1>🌑Sunglasses Hut</h1>
+  </header>
+
   <div class="image-container" onmouseover="hoverEffect('Beach')" onmouseout="resetEffect()">
     <a href="beach.html">
       <div class="rotated">
-      <img src="https://summer.sunglasshut.com/static/postcard-beach-b2bc8c38.webp" alt="Image 1">
-    </div>
+        <img src="https://summer.sunglasshut.com/static/postcard-beach-b2bc8c38.webp" alt="Image 1">
+      </div>
     </a>
   </div>
-  
 
   <div class="image-container" onmouseover="hoverEffect('City')" onmouseout="resetEffect()">
     <a href="city.html">
-    <img src="https://summer.sunglasshut.com/static/postcard-city-ab82cfa3.webp" alt="Image 2">
+      <img src="https://summer.sunglasshut.com/static/postcard-city-ab82cfa3.webp" alt="Image 2">
     </a>
   </div>
- 
+
   <div class="image-container" onmouseover="hoverEffect('Court')" onmouseout="resetEffect()">
     <a href="court.html">
       <div class="rotated1">
-    <img src="https://summer.sunglasshut.com/static/postcard-court-85c8a0b6.webp" alt="Image 2">
+        <img src="https://summer.sunglasshut.com/static/postcard-court-85c8a0b6.webp" alt="Image 2">
+      </div>
+    </a>
   </div>
-  </a>
-  </div>
-  
+
   <div class="image-container" onmouseover="hoverEffect('pool')" onmouseout="resetEffect()">
     <a href="pool.html">
       <div class="rotated">
-    <img src="https://summer.sunglasshut.com/static/postcard-pool-81ace735.webp" alt="Image 2">
+        <img src="https://summer.sunglasshut.com/static/postcard-pool-81ace735.webp" alt="Image 2">
+      </div>
+    </a>
   </div>
-  </a>
-  </div>
+
   <div class="image-container" onmouseover="hoverEffect('Terrace')" onmouseout="resetEffect()">
     <a href="terrace.html">
       <div class="rotated1">
-    <img src="https://summer.sunglasshut.com/static/postcard-terrace-896e341e.webp" alt="Image 2">
-    </div>
-  </a>
+        <img src="https://summer.sunglasshut.com/static/postcard-terrace-896e341e.webp" alt="Image 2">
+      </div>
+    </a>
   </div>
-
-
-
-  <!-- Add more image containers as needed -->
 
   <div class="split-text" id="splitText"> </div>
  
@@ -155,47 +263,83 @@
   
 
   
+
+
+
   <script>
+     const counterElement = document.querySelector('.counter');
     const splitTextElement = document.getElementById('splitText');
     const allContainers = document.querySelectorAll('.image-container');
+   
 
     function hoverEffect(text) {
-      allContainers.forEach(container => {
-        if (container !== event.currentTarget) {
-          gsap.to(container, { opacity: 0.2, duration: 0.5 });
-        }
-      });
-      gsap.to(splitTextElement, { opacity: 1, duration: 0.5 });
-      splitTextElement.innerText = text;
+        allContainers.forEach(container => {
+            if (container !== event.currentTarget) {
+                gsap.to(container, { opacity: 0.2, duration: 0.5 });
+            }
+        });
+        gsap.to(splitTextElement, { opacity: 1, duration: 0.5 });
+        splitTextElement.innerText = text;
     }
 
-    function resetEffect() {
-      allContainers.forEach(container => {
-        gsap.to(container, { opacity: 1, duration: 0.5 });
-      });
-      gsap.to(splitTextElement, { opacity: 0, duration: 0.5 });
+     function resetEffect() {
+        allContainers.forEach(container => {
+            gsap.to(container, { opacity: 1, duration: 0.5 });
+        });
+        gsap.to(splitTextElement, { opacity: 0, duration: 0.5 });
     }
+
     gsap.set(".image-container", {
-      y: 100,
-     
-      opacity: 0,
+        y: 100,
+        opacity: 0,
     });
 
-    gsap.to(".image-container", {
-      duration: 1.5,
-      y: 0,
-      
-      opacity: 1,
-      ease: "bounce.out",
-      stagger: {
-        grid: "auto",
-        from: "random",
-        each: 0.2,
-      },
+
+    const timeline = gsap.timeline({
+        onComplete: showContent,
     });
-  </script>
+
+    // Loader animation
+    timeline.to(".preloader", { duration: 2 })
+        .to(counterElement, { innerHTML: "100%", duration: 1, onUpdate: updateCounter }, "-=1.5")
+        .to(".preloader", { duration: 2, opacity: 0 });
+
+    // Image animation
+    timeline.to(".image-container", {
+        duration: 1.5,
+        y: 0,
+        opacity: 1,
+        ease: "bounce.in",
+        stagger: {
+            grid: "auto",
+            from: "random",
+            each: 0.2,
+        },
+    });
+
+    function showContent() {
+        // document.querySelector(".content").style.display = "block";
+    }
+
+    function updateCounter() {
+        counterElement.innerHTML = Math.round(gsap.getProperty(counterElement, "innerHTML")) + "%";
+    }
+
+
+   
+</script>
+
 
 </body>
-</html>
+</html> 
 
- 
+
+
+
+
+
+
+
+
+
+
